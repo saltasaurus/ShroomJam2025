@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://dce2d0n2tc3yj"]
+
+[ext_resource type="Script" uid="uid://dl135is6jc4ka" path="res://transition_button.gd" id="1_06t4h"]
+[ext_resource type="PackedScene" uid="uid://bh45b6ets1y20" path="res://SceneTransitionRect.tscn" id="1_fu7sn"]
+[ext_resource type="PackedScene" uid="uid://d2qfxuxopjdka" path="res://game.tscn" id="3_fu7sn"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rhts7"]
+size = Vector2(1280, 720)
+
+[sub_resource type="LabelSettings" id="LabelSettings_06t4h"]
+font_size = 64
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_rhts7")
+
+[node name="Control" type="Control" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Background/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -15.5
+offset_right = 23.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
+script = ExtResource("1_06t4h")
+next_scene = ExtResource("3_fu7sn")
+
+[node name="Label" type="Label" parent="Background/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = 160.0
+offset_right = -320.0
+offset_bottom = -432.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "NAME OF THE GAME"
+label_settings = SubResource("LabelSettings_06t4h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScreenTransitionRect" parent="Background/Control" instance=ExtResource("1_fu7sn")]
+layout_mode = 1
+next_scene = ExtResource("3_fu7sn")
